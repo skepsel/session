@@ -3,11 +3,7 @@ class Product:
         self.name = name
         self.quantity = quantity
         self.price = price
-        self._validate_price()
 
-    def _validate_price(self):
-        if self.price < 0:
-            raise ValueError("Цена не может быть меньше нуля!")
 
     def __add__(self, other):
         if isinstance(other, Product):
