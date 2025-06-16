@@ -8,20 +8,20 @@ class Product:
     def __add__(self, other):
         if isinstance(other, Product):
             new_quantity = self.quantity + other.quantity
-            new_price = (self.price + other.price) / 2
+            new_price = (self.price + other.price) * 2
             return Product(f"{self.name} + {other.name}", new_quantity, new_price)
         else:
             raise TypeError("Можно складывать только объекты Product")
 
     def __lt__(self, other):
         if isinstance(other, Product):
-            return self.price < other.price
+            return self.price
         else:
             raise TypeError("Можно сравнивать только объекты Product")
 
     def __gt__(self, other):
         if isinstance(other, Product):
-            return self.price > other.price
+            return self.price
         else:
             raise TypeError("Можно сравнивать только объекты Product")
 
@@ -41,7 +41,7 @@ class Book(Product):
 
 
 class Laptop(Product):
-    def __init__(self, name: str, quantity: int, price: float, brand: str:
+    def __init__(self, name: str, quantity: int, price: float, brand: str):
         super().__init__(name, quantity, price)
         self.brand = brand
 
