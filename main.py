@@ -1,9 +1,11 @@
 from abc import ABC, abstractmethod
 
+
 class AbstractProduct(ABC):
     @abstractmethod
     def get_description(self) -> str:
         pass
+
 
 class Product(AbstractProduct):
     def __init__(self, name: str, quantity: int, price: float):
@@ -45,6 +47,7 @@ class Product(AbstractProduct):
     def get_description(self) -> str:
         return f"Продукт: {self.name}"
 
+
 class Book(Product):
     def __init__(self, name: str, quantity: int, price: float, author: str):
         super().__init__(name, quantity, price)
@@ -56,6 +59,7 @@ class Book(Product):
     def get_description(self) -> str:
         return f"Книга: {self.name}, Автор: {self.author}"
 
+
 class Laptop(Product):
     def __init__(self, name: str, quantity: int, price: float, brand: str):
         super().__init__(name, quantity, price)
@@ -66,6 +70,7 @@ class Laptop(Product):
 
     def get_description(self) -> str:
         return f"Ноутбук: {self.name}, Бренд: {self.brand}"
+
 
 # Test the implementation
 try:
@@ -84,7 +89,7 @@ try:
 
     # Test task3 requirements
     print(book1.get_price())  # 500
-    book1.set_price(600)      # Update price
+    book1.set_price(600)  # Update price
     print(book1.get_price())  # 600
 
     # Test negative price
